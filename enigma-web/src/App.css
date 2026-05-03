@@ -1,0 +1,449 @@
+/* ── Shell: side panel + main ── */
+.app-shell {
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: #1a1a1a;
+  font-family: 'Courier New', Courier, monospace;
+  color: #e0d8c8;
+}
+
+.app-main {
+  flex: 1;
+  padding: 24px 24px 48px;
+  min-width: 0;
+}
+
+/* ── How To Use panel ── */
+.howto-panel {
+  flex-shrink: 0;
+  background: #111;
+  border-right: 1px solid #2e2e2e;
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  max-height: 100vh;
+  transition: width 0.2s ease;
+}
+
+.howto-open {
+  width: 240px;
+  padding: 20px 16px;
+}
+
+.howto-closed {
+  width: 36px;
+  padding: 12px 0;
+  overflow: hidden;
+}
+
+.howto-collapse-btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #d4a84b;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 4px 0;
+  text-align: center;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+  font-family: inherit;
+}
+
+.howto-collapse-btn:hover { opacity: 1; }
+
+.howto-closed .howto-collapse-btn {
+  writing-mode: vertical-rl;
+  height: auto;
+  padding: 8px 0;
+}
+
+.howto-heading {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #d4a84b;
+  margin-bottom: 20px;
+  margin-top: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.howto-section {
+  margin-bottom: 18px;
+}
+
+.howto-section h3 {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d4a84b;
+  margin: 0 0 6px;
+  font-weight: normal;
+}
+
+.howto-section p {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #7a7060;
+  margin: 0 0 5px;
+}
+
+.howto-section p:last-child { margin-bottom: 0; }
+
+.howto-section ol,
+.howto-section ul {
+  margin: 4px 0 5px 14px;
+  padding: 0;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: #7a7060;
+}
+
+.howto-section strong { color: #a09070; }
+.howto-section em { color: #a09070; font-style: normal; }
+
+.howto-warning {
+  color: #5a5040 !important;
+  font-size: 0.72rem !important;
+  border-left: 2px solid #3a3020;
+  padding-left: 8px;
+  margin-top: 6px;
+}
+
+/* ── Title ── */
+.title {
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0.2em;
+  color: #d4a84b;
+  margin: 0 0 24px;
+  text-shadow: 0 0 20px rgba(212, 168, 75, 0.4);
+}
+
+/* ── Attribution ── */
+.attribution {
+  text-align: center;
+  font-size: 0.72rem;
+  color: #555;
+  margin: -16px 0 20px;
+  letter-spacing: 0.05em;
+}
+
+.attribution a {
+  color: #7a6a4a;
+  text-decoration: none;
+}
+
+.attribution a:hover { color: #d4a84b; }
+
+/* ── Rotors ── */
+.rotors-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.rotor-control {
+  background: #2a2418;
+  border: 1px solid #5a4a2a;
+  border-radius: 8px;
+  padding: 14px 20px;
+  text-align: center;
+  min-width: 90px;
+}
+
+.rotor-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: #888;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.rotor-selector, .position-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 5px 0;
+}
+
+.rotor-selector button, .position-selector button {
+  background: #3a3020;
+  border: 1px solid #5a4a2a;
+  color: #d4a84b;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: background 0.15s;
+}
+
+.rotor-selector button:hover, .position-selector button:hover { background: #4a3e28; }
+
+.rotor-no {
+  font-size: 1.3rem;
+  color: #d4a84b;
+  min-width: 28px;
+  font-weight: bold;
+}
+
+.position-no {
+  font-size: 1rem;
+  color: #c0b080;
+  min-width: 28px;
+}
+
+/* ── Actions ── */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: #3a2e1a;
+  border: 1px solid #d4a84b;
+  color: #d4a84b;
+  padding: 7px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+}
+
+.btn:hover { background: #4a3e28; }
+.btn-secondary { border-color: #555; color: #888; }
+.btn-secondary:hover { border-color: #888; color: #bbb; background: #2a2a2a; }
+
+.error {
+  text-align: center;
+  color: #e05555;
+  font-size: 0.82rem;
+  margin-bottom: 10px;
+}
+
+/* ── Lamp Board ── */
+.lamp-board {
+  margin: 0 auto 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.lamp-row { display: flex; gap: 7px; }
+
+.lamp {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #2a2418;
+  border: 2px solid #5a4a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #555;
+  transition: all 0.1s;
+  user-select: none;
+}
+
+.lamp.lamp-on {
+  background: #ffa500;
+  border-color: #ffd080;
+  color: #1a1000;
+  box-shadow: 0 0 14px rgba(255,165,0,0.8), 0 0 28px rgba(255,165,0,0.4);
+}
+
+/* ── Keyboard ── */
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 24px;
+}
+
+.key-row { display: flex; gap: 7px; }
+
+.key {
+  width: 46px;
+  height: 46px;
+  border-radius: 6px;
+  background: #2e2e2e;
+  border: 2px solid #555;
+  color: #c8c0b0;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s;
+  user-select: none;
+}
+
+.key:hover { background: #3a3a3a; border-color: #888; }
+
+.key.key-pressed {
+  background: #4a3020;
+  border-color: #d4a84b;
+  color: #d4a84b;
+  transform: translateY(2px);
+  box-shadow: 0 0 8px rgba(212,168,75,0.4);
+}
+
+.key-backspace {
+  width: 58px !important;
+  background: #2a1f1f !important;
+  border-color: #6a3030 !important;
+  color: #c08080 !important;
+  font-size: 1rem !important;
+}
+
+.key-backspace:hover {
+  background: #3a2828 !important;
+  border-color: #a05050 !important;
+  color: #e0a0a0 !important;
+}
+
+/* ── IO Section ── */
+.io-section {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.io-box {
+  flex: 1;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 10px 14px;
+  min-height: 72px;
+}
+
+.io-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: #555;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.io-text {
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: #c8c0b0;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+.io-text.output { color: #d4a84b; }
+.placeholder { color: #3a3a3a; font-style: italic; letter-spacing: 0; }
+
+/* ── Plugboard (inline) ── */
+.plugboard-inline {
+  border-top: 1px solid #2e2e2e;
+  padding-top: 20px;
+}
+
+.plugboard { padding: 0; }
+
+.plugboard-title {
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: #d4a84b;
+  margin-bottom: 4px;
+}
+
+.plug-count { font-size: 0.75rem; color: #777; }
+
+.plugboard-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: center;
+  margin: 14px 0;
+}
+
+.plug-socket {
+  width: 52px;
+  height: 52px;
+  background: #2a2418;
+  border: 2px solid #5a4a2a;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.plug-socket:hover { border-color: #888; background: #332c1e; }
+.plug-socket.plugged { background: #2a3020; border-color: #6a9a4a; }
+.plug-socket.plug-selected {
+  background: #3a2810;
+  border-color: #d4a84b;
+  box-shadow: 0 0 10px rgba(212,168,75,0.5);
+}
+
+.plug-letter { font-size: 1rem; font-weight: bold; color: #c8c0b0; }
+.plug-socket.plugged .plug-letter { color: #a0c080; }
+.plug-socket.plug-selected .plug-letter { color: #d4a84b; }
+
+.plug-partner { font-size: 0.55rem; color: #6a9a4a; letter-spacing: 0; }
+
+.plug-hint {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #d4a84b;
+  margin-top: 6px;
+  opacity: 0.8;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .howto-panel { width: 200px; }
+}
+
+@media (max-width: 700px) {
+  .app-shell { flex-direction: column; }
+
+  .howto-panel,
+  .howto-open,
+  .howto-closed {
+    width: 100% !important;
+    min-height: unset;
+    max-height: unset;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid #2e2e2e;
+  }
+
+  .howto-closed { padding: 8px 16px !important; }
+
+  .howto-closed .howto-collapse-btn {
+    writing-mode: horizontal-tb;
+    padding: 4px 0;
+  }
+
+  .lamp { width: 34px; height: 34px; font-size: 0.72rem; }
+  .key { width: 34px; height: 36px; font-size: 0.8rem; }
+  .key-backspace { width: 46px !important; }
+  .plug-socket { width: 44px; height: 44px; }
+}
