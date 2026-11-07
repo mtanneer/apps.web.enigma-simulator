@@ -1,0 +1,8 @@
+# devhub project manifest. Schema: ~/dev/tools.all.devhub/SCHEMA.md
+status = "dormant"
+purpose = "Browser Enigma machine simulator, React port of Code-Bullet's Processing original"
+tags = ["fork", "crypto"]
+depends_on = []
+deploy = "local"
+next = []
+# evidence: README.md, batch facts
